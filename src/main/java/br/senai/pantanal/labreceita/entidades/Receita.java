@@ -2,13 +2,29 @@ package br.senai.pantanal.labreceita.entidades;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+
+@Entity
 public class Receita {
 
+	@Column
 	private String titulo;
+	
+	@Column
 	private int tempoPreparo;
+	
+	@Column
 	private NivelDificuldade nivelDificuldade;
+	
+	@Column
 	private int qntPessoasServidas;
+	
+	@OneToMany(mappedBy = "receita")
 	private List<Ingrediente> ingredientes;
+	
+	
 	private List<String> passosPreparo;
 	private TipoReceita tipoReceita;
 	private List<Restricao> restricoes;
